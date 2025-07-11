@@ -1,28 +1,6 @@
 .. These are examples of badges you might want to add to your README:
    please update the URLs accordingly
 
-    .. image:: https://api.cirrus-ci.com/github/<USER>/check-python-h-first.svg?branch=main
-        :alt: Built Status
-        :target: https://cirrus-ci.com/github/<USER>/check-python-h-first
-    .. image:: https://readthedocs.org/projects/check-python-h-first/badge/?version=latest
-        :alt: ReadTheDocs
-        :target: https://check-python-h-first.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/coveralls/github/<USER>/check-python-h-first/main.svg
-        :alt: Coveralls
-        :target: https://coveralls.io/r/<USER>/check-python-h-first
-    .. image:: https://img.shields.io/pypi/v/check-python-h-first.svg
-        :alt: PyPI-Server
-        :target: https://pypi.org/project/check-python-h-first/
-    .. image:: https://img.shields.io/conda/vn/conda-forge/check-python-h-first.svg
-        :alt: Conda-Forge
-        :target: https://anaconda.org/conda-forge/check-python-h-first
-    .. image:: https://pepy.tech/badge/check-python-h-first/month
-        :alt: Monthly Downloads
-        :target: https://pepy.tech/project/check-python-h-first
-    .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
-        :alt: Twitter
-        :target: https://twitter.com/check-python-h-first
-
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
     :target: https://pyscaffold.org/

@@ -10,3 +10,8 @@ version_scheme = "no-guess-dev"
 
 [project.scripts]
 check_python_h_first = "check_python_h_first.__main__:main"
+
+[project]
+dynamic = ["version", "readme", "optional-dependencies"]
+name = "check-python-h-first"
+description = "Script to check whether Python.h is included first in any relevant files."
