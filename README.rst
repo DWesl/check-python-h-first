@@ -12,13 +12,13 @@ check-python-h-first
 ====================
 
 
-    Script to check whether Python.h is included first in any relevant files.
+Script to check whether Python.h is included first in any headers or
+source files.
 
+This file does not handle mazes of ``#ifdef``s: it checks each file
+for ``#include``, whether the file included is ``Python.h``, and, if
+so, whether that's the first ``#include`` in that file.
 
-A longer description of your project goes here...
-
-
-.. _pyscaffold-notes:
 
 Making Changes & Contributing
 =============================
