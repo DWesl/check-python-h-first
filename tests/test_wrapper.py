@@ -3,7 +3,7 @@
 import glob
 import os.path
 
-from check_python_h_first.wrapper import sort_order
+from check_python_h_first.wrapper import find_c_cpp_files, sort_order
 
 THIS_DIR = os.path.dirname(__file__)
 
@@ -15,3 +15,9 @@ def test_sort_order():
     """Test that the sort function puts headers first."""
     result = sorted(SOURCE_LIST + HEADER_LIST, key=sort_order)
     assert result == HEADER_LIST + SOURCE_LIST
+
+
+def test_find_c_cpp_files():
+    """Test that the function can find all the files."""
+    result = find_c_cpp_files(THIS_DIR)
+    assert set(result) == set(HEADER_LIST + SOURCE_LIST)
