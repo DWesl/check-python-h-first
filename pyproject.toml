@@ -7,3 +7,6 @@ build-backend = "setuptools.build_meta"
 # For smarter version schemes and other configuration options,
 # check out https://github.com/pypa/setuptools_scm
 version_scheme = "no-guess-dev"
+
+[project.scripts]
+check_python_h_first = "check_python_h_first.__main__:main"
