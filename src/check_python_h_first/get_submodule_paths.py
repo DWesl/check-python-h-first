@@ -13,8 +13,21 @@ def get_submodule_paths():
     Get paths to submodules so that we can exclude them from things like
     check_test_name.py, check_unicode.py, etc.
     """
-    root_directory = os.path.dirname(os.path.dirname(__file__))
+    # Find the git repo root
+    root_directory = os.getcwd()
+    git_dir = os.path.join(root_directory, ".git")
+    while not os.path.exists(git_dir):
+        next_root = os.path.abspath(os.path.join(root_directory, ".."))
+        if next_root == root_directory:
+            break
+        else:
+            root_directory = next_root
+        git_dir = os.path.join(root_directory, ".git")
+
+    # Check for submodules
     gitmodule_file = os.path.join(root_directory, ".gitmodules")
+    if not os.path.exists(gitmodule_file):
+        return []
     with open(gitmodule_file) as gitmodules:
         data = gitmodules.read().split("\n")
         submodule_paths = [

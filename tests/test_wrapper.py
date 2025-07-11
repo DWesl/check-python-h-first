@@ -3,7 +3,7 @@
 import glob
 import os.path
 
-from check_python_h_first.wrapper import find_c_cpp_files, sort_order
+from check_python_h_first.wrapper import find_c_cpp_files, process_files, sort_order
 
 THIS_DIR = os.path.dirname(__file__)
 
@@ -21,3 +21,15 @@ def test_find_c_cpp_files():
     """Test that the function can find all the files."""
     result = find_c_cpp_files(THIS_DIR)
     assert set(result) == set(HEADER_LIST + SOURCE_LIST)
+
+
+def test_process_files():
+    """Test that process files detects the number of failures.
+
+    Will break down if one file has multiple failures.
+    """
+    result = process_files(HEADER_LIST + SOURCE_LIST)
+    assert result == sum(
+        os.path.basename(name).startswith("system")
+        for name in HEADER_LIST + SOURCE_LIST
+    )

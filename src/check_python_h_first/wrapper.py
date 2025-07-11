@@ -12,7 +12,7 @@ import os.path
 import subprocess
 import sys
 
-from . import get_submodule_paths
+from .get_submodule_paths import get_submodule_paths
 from .single_file import check_python_h_included_first
 
 C_CPP_EXTENSIONS = (".c", ".h", ".cpp", ".hpp", ".cc", ".hh", ".cxx", ".hxx")
