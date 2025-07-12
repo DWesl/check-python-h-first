@@ -10,7 +10,9 @@ ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
 def test_submodule_paths_gh_pages():
     """Test that we can pick up the gh-pages submodule."""
     results = get_submodule_paths()
-    assert set(results) == {os.path.join(ROOT_DIR, "docs", "_build", "html")}
+    assert {os.path.normpath(name) for name in results} == {
+        os.path.normpath(os.path.join(ROOT_DIR, "docs", "_build", "html"))
+    }
 
 
 def test_submodule_paths_no_repo():
