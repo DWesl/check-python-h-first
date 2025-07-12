@@ -40,11 +40,14 @@ def get_submodule_paths():
             os.path.join(root_directory, path) for path in submodule_paths
         ]
     # vendored with a script rather than via gitmodules
-    with open(os.path.join(root_directory, ".gitattributes"), "r") as attr_file:
-        for line in attr_file:
-            if "vendored" in line:
-                pattern = line.split(" ", 1)[0]
-                submodule_paths.extend(glob.glob(pattern))
+    try:
+        with open(os.path.join(root_directory, ".gitattributes"), "r") as attr_file:
+            for line in attr_file:
+                if "vendored" in line:
+                    pattern = line.split(" ", 1)[0]
+                    submodule_paths.extend(glob.glob(pattern))
+    except FileNotFoundError:
+        pass
 
     return submodule_paths
 
