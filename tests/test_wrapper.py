@@ -3,7 +3,12 @@
 import glob
 import os.path
 
-from check_python_h_first.wrapper import find_c_cpp_files, process_files, sort_order
+from check_python_h_first.wrapper import (
+    diff_files,
+    find_c_cpp_files,
+    process_files,
+    sort_order,
+)
 
 THIS_DIR = os.path.dirname(__file__)
 
@@ -33,3 +38,9 @@ def test_process_files():
         os.path.basename(name).startswith("system")
         for name in HEADER_LIST + SOURCE_LIST
     )
+
+
+def test_diff_files():
+    """Test whether diff_files picks up the correct files."""
+    new_files = [os.path.basename(name) for name in diff_files("c8bda44")]
+    assert new_files == ["system_numpy.c"]
