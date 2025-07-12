@@ -35,7 +35,7 @@ def sort_order(path: str) -> tuple[int, str]:
     priority : int
     path : str
     """
-    # TODO: generalize for different projects
+    # I should generalize this for different projects
     if "include/numpy" in path:
         # Want to process numpy/*.h first, to work out which of those
         # include Python.h directly

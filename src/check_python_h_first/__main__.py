@@ -15,7 +15,7 @@ PARSER.add_argument(
     "Expects relative paths",
 )
 PARSER.add_argument(
-    "--version", action="version", version="check_python_h_first {__version__}"
+    "--version", action="version", version=f"check_python_h_first {__version__}"
 )
 
 
