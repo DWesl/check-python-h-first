@@ -48,9 +48,10 @@ def test_process_files():
 
 
 @pytest.mark.xfail(
-    os.environ.get("GITHUB_ACTIONS", "false") == "true",
+    os.environ.get("GITHUB_ACTIONS", "false").lower() == "true",
     reason="GHA does a shallow clone, without the history needed for this test.",
     raises=subprocess.CalledProcessError,
+    run=False,
 )
 def test_diff_files():
     """Test whether diff_files picks up the correct files."""
