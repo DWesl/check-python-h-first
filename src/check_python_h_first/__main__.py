@@ -19,9 +19,9 @@ PARSER.add_argument(
 )
 
 
-def main():
+def main(argv: list[str] = None):
     """Run the checker on the files passed on the command line."""
-    args = PARSER.parse_args()
+    args = PARSER.parse_args(argv)
 
     files = args.files
     if len(files) == 1 and os.path.isdir(files[0]):
@@ -29,8 +29,8 @@ def main():
 
     # See which of the headers include Python.h and add them to the list
     n_out_of_order = process_files(files)
-    sys.exit(n_out_of_order)
+    return n_out_of_order
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

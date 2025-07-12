@@ -42,7 +42,8 @@ def test_process_files():
     """
     result = process_files(HEADER_LIST + SOURCE_LIST)
     assert result == sum(
-        os.path.basename(name).startswith("system") or os.path.basename(name).startswith("bad")
+        os.path.basename(name).startswith("system")
+        or os.path.basename(name).startswith("bad")
         for name in HEADER_LIST + SOURCE_LIST
     )
 
