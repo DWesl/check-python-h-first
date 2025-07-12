@@ -38,14 +38,13 @@ content-type = "text/x-rst; charset=UTF-8"
 
 # Add here related links, for example:
 [project.urls]
-Homepage = "https://github.com/pyscaffold/pyscaffold/"
-Documentation = "https://pyscaffold.org/"
-# Source = https://github.com/pyscaffold/pyscaffold/
-# Changelog = https://pyscaffold.org/en/latest/changelog.html
-# Tracker = https://github.com/pyscaffold/pyscaffold/issues
+Homepage = "https://dwesl.github.io/check-python-h-first/"
+Documentation = "https://dwesl.github.io/check-python-h-first/"
+Source = "https://github.com/DWesl/check-python-h-first"
+Changelog = "https://dwesl.github.io/check-python-h-first/changelog.html"
+Tracker = "https://github.com/DWesl/check-python-h-first/issues"
 # Conda-Forge = https://anaconda.org/conda-forge/pyscaffold
 # Download = https://pypi.org/project/PyScaffold/#files
-# Twitter = https://twitter.com/PyScaffold
 
 [project.optional-dependencies]
 # Add here additional requirements for extra features, to install with:
