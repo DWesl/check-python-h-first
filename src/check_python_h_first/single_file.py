@@ -42,7 +42,24 @@ LEAF_HEADERS = [
 ]
 
 
-def check_python_h_included_first(name_to_check: str) -> int:
+def has_python_construct(line: str, checking_numpy: bool = False) -> bool:
+    """Test whether the line uses Python.
+
+    This is an attempt to detect files that expect ``Python.h`` to be
+    included, but do not do so themselves.
+
+    """
+    result = (
+        "py::" in line or "PYBIND11_" in line or " Py" in line or line.startswith("Py")
+    )
+    if not checking_numpy:
+        result = result or " npy_" in line
+    return result
+
+
+def check_python_h_included_first(
+    name_to_check: str, checking_numpy: bool = False
+) -> int:
     """Check that the passed file includes Python.h first if it does at all.
 
     Perhaps overzealous, but that should work around concerns with
@@ -98,7 +115,9 @@ def check_python_h_included_first(name_to_check: str) -> int:
                     included_python = True
                     PYTHON_INCLUDING_HEADERS.append(basename_to_check)
                     if os.path.dirname(name_to_check).endswith("include/numpy"):
-                        PYTHON_INCLUDING_HEADERS.append(f"numpy/{basename_to_check:s}")
+                        PYTHON_INCLUDING_HEADERS.append(
+                            f"numpy/{basename_to_check:s}"
+                        )  # pragma: no cover
                     # We just found out where Python.h comes in this file
                     break
                 elif this_header in LEAF_HEADERS:
@@ -125,8 +144,7 @@ def check_python_h_included_first(name_to_check: str) -> int:
                 not included_python
                 and not warned_python_construct
                 and ".h" not in basename_to_check
-            ) and ("py::" in line or "PYBIND11_" in line
-                   or " npy_" in line or " Py" in line or line.startswith("Py")):
+            ) and has_python_construct(line, checking_numpy):
                 print(
                     "Python-including header not used before python constructs "
                     f"in file {name_to_check:s}\nConstruct on line {i:d}",
@@ -135,4 +153,6 @@ def check_python_h_included_first(name_to_check: str) -> int:
                 warned_python_construct = True
     if not includes_headers:
         LEAF_HEADERS.append(basename_to_check)
-    return (included_python and len(included_non_python_header)) or warned_python_construct
+    return (
+        included_python and len(included_non_python_header)
+    ) or warned_python_construct

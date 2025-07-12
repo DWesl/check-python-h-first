@@ -75,7 +75,8 @@ def process_files(file_list: list[str]) -> int:
     """
     n_out_of_order = 0
     submodule_paths = get_submodule_paths()
-    root_directory = os.path.dirname(os.path.dirname(__file__))
+    root_directory = os.getcwd()
+    checking_numpy = "numpy" in os.path.commonpath(file_list)
     for name_to_check in sorted(file_list, key=sort_order):
         name_to_check = os.path.join(root_directory, name_to_check)
         if any(submodule_path in name_to_check for submodule_path in submodule_paths):
@@ -83,7 +84,9 @@ def process_files(file_list: list[str]) -> int:
         if ".dispatch." in name_to_check:
             continue
         try:
-            n_out_of_order += check_python_h_included_first(name_to_check)
+            n_out_of_order += check_python_h_included_first(
+                name_to_check, checking_numpy
+            )
         except UnicodeDecodeError:
             print(f"File {name_to_check:s} not utf-8", sys.stdout)
     return n_out_of_order
