@@ -5,6 +5,8 @@ effectiveness, then run
 :func:`.single_file.check_python_h_included_first` on each file,
 collating the results.
 
+Originally implemented `in SciPy
+<https://github.com/scipy/scipy/blob/888ca356/tools/check_python_h_first.py>`_
 """
 
 import fnmatch

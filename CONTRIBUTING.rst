@@ -27,7 +27,7 @@
 Contributing
 ============
 
-Welcome to ``check-python-h-first`` contributor's guide.
+Welcome to the ``check-python-h-first`` contributor's guide.
 
 This document focuses on getting any potential contributor familiarized
 with the development processes, but `other kinds of contributions`_ are also
@@ -106,11 +106,16 @@ and use Python's built-in web server for a preview in your web browser
 Code Contributions
 ==================
 
-.. todo:: Please include a reference or explanation about the internals of the project.
-
-   An architecture description, design principles or at least a summary of the
-   main concepts will make it easy for potential contributors to get started
-   quickly.
+- ``src/check_python_h_first/single_file.py`` contains the checks for
+  a single file
+- ``src/check_python_h_first/wrapper.py`` contains functions to sort a
+  list of files, send the result to the functions in
+  ``single_file.py``, and aggregate the results.
+- ``src/check_python_h_first/get_submodule_paths.py`` contains checks
+  for files managed by different repositories.
+- ``src/check_python_h_first/__main__.py`` provides a command-line
+  interface.
+- The docs are under ``docs``
 
 Submit an issue
 ---------------
@@ -151,7 +156,6 @@ Clone the repository
 
    to be able to import the package under development in the Python REPL.
 
-   .. todo:: if you are not using pre-commit, please remove the following item:
 
 #. Install |pre-commit|_::
 
@@ -181,8 +185,6 @@ Implement your changes
     git commit
 
    to record your changes in git_.
-
-   .. todo:: if you are not using pre-commit, please remove the following item:
 
    Please make sure to see the validation messages from |pre-commit|_ and fix
    any eventual issues.
@@ -218,11 +220,10 @@ Submit your contribution
 #. Go to the web page of your fork and click |contribute button|
    to send your changes for review.
 
-   .. todo:: if you are using GitHub, you can uncomment the following paragraph
-
-      Find more detailed information in `creating a PR`_. You might also want to open
-      the PR as a draft first and mark it as ready for review after the feedbacks
-      from the continuous integration (CI) system or any required fixes.
+   Find more detailed information in `creating a PR`_. You might also
+   want to open the PR as a draft first and mark it as ready for
+   review after the feedbacks from the continuous integration (CI)
+   system or any required fixes.
 
 
 Troubleshooting
@@ -302,7 +303,7 @@ on PyPI_, the following steps can be used to release a new version for
 
 
 
-.. [#contrib1] Even though, these resources focus on open source projects and
+.. [#contrib1] Even though these resources focus on open source projects and
    communities, the general ideas behind collaborating with other developers
    to collectively create software are general and can be applied to all sorts
    of environments, including private companies and proprietary code bases.
@@ -314,8 +315,8 @@ on PyPI_, the following steps can be used to release a new version for
 .. |the repository service| replace:: GitHub
 .. |contribute button| replace:: "Create pull request"
 
-.. _repository: https://github.com/<USERNAME>/check-python-h-first
-.. _issue tracker: https://github.com/<USERNAME>/check-python-h-first/issues
+.. _repository: https://github.com/DWesl/check-python-h-first
+.. _issue tracker: https://github.com/DWesl/check-python-h-first/issues
 .. <-- end -->
 
 

@@ -1,6 +1,9 @@
 """Find files in submodules.
 
 Those should be fixed in upstream project repos, not here.
+
+Originally implemented `in SciPy
+<https://github.com/scipy/scipy/blob/888ca356e/tools/get_submodule_paths.py>`_
 """
 
 import glob

@@ -5,6 +5,5 @@ Changelog
 Version 0.1
 ===========
 
-- Feature A added
-- FIX: nasty bug #1729 fixed
-- add your changes here!
+- Pulled the ``check_python_h_first.py`` script from SciPy into its
+  own package

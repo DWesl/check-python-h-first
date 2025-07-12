@@ -1,6 +1,9 @@
 """Check that Python.h is included before any stdlib headers.
 
 May be a bit overzealous, but it should get the job done.
+
+Originally implemented `in SciPy
+<https://github.com/scipy/scipy/blob/888ca356/tools/check_python_h_first.py>`_
 """
 
 import os.path

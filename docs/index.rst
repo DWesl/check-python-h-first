@@ -2,9 +2,18 @@
 check-python-h-first
 ====================
 
-This is the documentation of **check-python-h-first**.
+Python advises extension modules include ``Python.h`` `before other
+files
+<https://docs.python.org/3/extending/extending.html#a-simple-example>`_.
+This package checks that source files conform to that suggestion.
 
-.. note::
+The intended use is ``check_python_h_first path/to/header.h
+path/to/source.c``: the script will tell you if the files on the
+command line include other headers before ``Python.h``.  It will also
+allow certain headers from Pybind or NumPy as the first included
+header.
+
+.. comment
 
     This is the main page of your project's `Sphinx`_ documentation.
     It is formatted in `reStructuredText`_. Add additional pages

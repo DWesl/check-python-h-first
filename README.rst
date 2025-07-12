@@ -12,10 +12,14 @@ check-python-h-first
 ====================
 
 
-Script to check whether Python.h is included first in any headers or
+Package to check whether Python.h is included first in any headers or
 source files.
+Python advises extension modules include ``Python.h`` `before other
+files
+<https://docs.python.org/3/extending/extending.html#a-simple-example>`_.
+This package checks that source files conform to that suggestion.
 
-This file does not handle mazes of ``#ifdef``s: it checks each file
+This file does not handle mazes of ``#ifdef``: it checks each file
 for ``#include``, whether the file included is ``Python.h``, and, if
 so, whether that's the first ``#include`` in that file.
 
