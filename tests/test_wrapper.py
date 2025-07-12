@@ -42,7 +42,7 @@ def test_process_files():
     """
     result = process_files(HEADER_LIST + SOURCE_LIST)
     assert result == sum(
-        os.path.basename(name).startswith("system")
+        os.path.basename(name).startswith("system") or os.path.basename(name).startswith("bad")
         for name in HEADER_LIST + SOURCE_LIST
     )
 
@@ -55,5 +55,5 @@ def test_process_files():
 )
 def test_diff_files():
     """Test whether diff_files picks up the correct files."""
-    new_files = [os.path.basename(name) for name in diff_files("c8bda44")]
-    assert new_files == ["system_numpy.c"]
+    new_files = {os.path.basename(name) for name in diff_files("48eec70")}
+    assert new_files == {"myheader.h", "bad_extension.c", "good_extension.c"}

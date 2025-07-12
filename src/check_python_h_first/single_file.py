@@ -78,6 +78,8 @@ def check_python_h_included_first(name_to_check: str) -> int:
                     in_comment = False
                 continue
             line = line.split("//", 1)[0].strip()
+            if len(line) == 0:
+                continue
             # Now that there's no comments, look for headers
             match = HEADER_PATTERN.match(line)
             if match:
@@ -123,7 +125,8 @@ def check_python_h_included_first(name_to_check: str) -> int:
                 not included_python
                 and not warned_python_construct
                 and ".h" not in basename_to_check
-            ) and ("py::" in line or "PYBIND11_" in line):
+            ) and ("py::" in line or "PYBIND11_" in line
+                   or " npy_" in line or " Py" in line or line.startswith("Py")):
                 print(
                     "Python-including header not used before python constructs "
                     f"in file {name_to_check:s}\nConstruct on line {i:d}",
@@ -132,4 +135,4 @@ def check_python_h_included_first(name_to_check: str) -> int:
                 warned_python_construct = True
     if not includes_headers:
         LEAF_HEADERS.append(basename_to_check)
-    return included_python and len(included_non_python_header)
+    return (included_python and len(included_non_python_header)) or warned_python_construct

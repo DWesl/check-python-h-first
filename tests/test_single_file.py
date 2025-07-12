@@ -17,7 +17,8 @@ SOURCE_LIST = glob.glob(os.path.join(THIS_DIR, "*.c"))
 def test_files(file: str):
     """Test whether function on a single file."""
     actual = check_python_h_included_first(file)
-    if os.path.basename(file).startswith("system"):
+    file_basename = os.path.basename(file)
+    if file_basename.startswith("system") or file_basename.startswith("bad"):
         assert actual > 0
     else:
         assert actual == 0
