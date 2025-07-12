@@ -30,7 +30,7 @@ classifiers = [
 dependencies = ['importlib-metadata; python_version<"3.8"']
 dynamic = ["version"]
 # Require a min/specific Python version (comma-separated conditions)
-# python_requires = [">=3.8"]
+requires-python = ">=3.9"
 
 [project.readme]
 file = "README.rst"
