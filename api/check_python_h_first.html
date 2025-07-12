@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>check_python_h_first package &#8212; check-python-h-first 0.0.post1.dev13+g4f00349.d20250712 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=0ca6144b" />
+    <script src="../_static/documentation_options.js?v=7eb0f3a3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="check_python_h_first" href="modules.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="check-python-h-first-package">
+<h1>check_python_h_first package<a class="headerlink" href="#check-python-h-first-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-check_python_h_first.get_submodule_paths">
+<span id="check-python-h-first-get-submodule-paths-module"></span><h2>check_python_h_first.get_submodule_paths module<a class="headerlink" href="#module-check_python_h_first.get_submodule_paths" title="Link to this heading">¶</a></h2>
+<p>Find files in submodules.</p>
+<p>Those should be fixed in upstream project repos, not here.</p>
+<p>Originally implemented <a class="reference external" href="https://github.com/scipy/scipy/blob/888ca356e/tools/get_submodule_paths.py">in SciPy</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="check_python_h_first.get_submodule_paths.get_submodule_paths">
+<span class="sig-prename descclassname"><span class="pre">check_python_h_first.get_submodule_paths.</span></span><span class="sig-name descname"><span class="pre">get_submodule_paths</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/check_python_h_first/get_submodule_paths.html#get_submodule_paths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#check_python_h_first.get_submodule_paths.get_submodule_paths" title="Link to this definition">¶</a></dt>
+<dd><p>Get submodule roots.</p>
+<p>Get paths to submodules so that we can exclude them from things like
+check_test_name.py, check_unicode.py, etc.</p>
+</dd></dl>
+
+</section>
+<section id="module-check_python_h_first.single_file">
+<span id="check-python-h-first-single-file-module"></span><h2>check_python_h_first.single_file module<a class="headerlink" href="#module-check_python_h_first.single_file" title="Link to this heading">¶</a></h2>
+<p>Check that Python.h is included before any stdlib headers.</p>
+<p>May be a bit overzealous, but it should get the job done.</p>
+<p>Originally implemented <a class="reference external" href="https://github.com/scipy/scipy/blob/888ca356/tools/check_python_h_first.py">in SciPy</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="check_python_h_first.single_file.check_python_h_included_first">
+<span class="sig-prename descclassname"><span class="pre">check_python_h_first.single_file.</span></span><span class="sig-name descname"><span class="pre">check_python_h_included_first</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_to_check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.12/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span></span><a class="reference internal" href="../_modules/check_python_h_first/single_file.html#check_python_h_included_first"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#check_python_h_first.single_file.check_python_h_included_first" title="Link to this definition">¶</a></dt>
+<dd><p>Check that the passed file includes Python.h first if it does at all.</p>
+<p>Perhaps overzealous, but that should work around concerns with
+recursion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name_to_check</strong> (<a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The name of the file to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of headers before Python.h</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.12/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-check_python_h_first.wrapper">
+<span id="check-python-h-first-wrapper-module"></span><h2>check_python_h_first.wrapper module<a class="headerlink" href="#module-check_python_h_first.wrapper" title="Link to this heading">¶</a></h2>
+<p>Wrapper to check multiple files at once.</p>
+<p>The functions in this script try to sort the files for greater
+effectiveness, then run
+<a class="reference internal" href="#check_python_h_first.single_file.check_python_h_included_first" title="check_python_h_first.single_file.check_python_h_included_first"><code class="xref py py-func docutils literal notranslate"><span class="pre">single_file.check_python_h_included_first()</span></code></a> on each file,
+collating the results.</p>
+<p>Originally implemented <a class="reference external" href="https://github.com/scipy/scipy/blob/888ca356/tools/check_python_h_first.py">in SciPy</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="check_python_h_first.wrapper.diff_files">
+<span class="sig-prename descclassname"><span class="pre">check_python_h_first.wrapper.</span></span><span class="sig-name descname"><span class="pre">diff_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/check_python_h_first/wrapper.html#diff_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#check_python_h_first.wrapper.diff_files" title="Link to this definition">¶</a></dt>
+<dd><p>Find the diff since the given SHA.</p>
+<p>Adapted from scipy/tools/lint.py</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="check_python_h_first.wrapper.find_c_cpp_files">
+<span class="sig-prename descclassname"><span class="pre">check_python_h_first.wrapper.</span></span><span class="sig-name descname"><span class="pre">find_c_cpp_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/check_python_h_first/wrapper.html#find_c_cpp_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#check_python_h_first.wrapper.find_c_cpp_files" title="Link to this definition">¶</a></dt>
+<dd><p>Find C and C++ files under root.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>root</strong> (<a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#list" title="(in Python v3.12)">list</a> of <a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="check_python_h_first.wrapper.process_files">
+<span class="sig-prename descclassname"><span class="pre">check_python_h_first.wrapper.</span></span><span class="sig-name descname"><span class="pre">process_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.12/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span></span><a class="reference internal" href="../_modules/check_python_h_first/wrapper.html#process_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#check_python_h_first.wrapper.process_files" title="Link to this definition">¶</a></dt>
+<dd><p>Process each of the files in the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_list</strong> (<a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>n_out_of_order</strong> – The number of headers before Python.h</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.12/library/functions.html#int" title="(in Python v3.12)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="check_python_h_first.wrapper.sort_order">
+<span class="sig-prename descclassname"><span class="pre">check_python_h_first.wrapper.</span></span><span class="sig-name descname"><span class="pre">sort_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.12/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/check_python_h_first/wrapper.html#sort_order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#check_python_h_first.wrapper.sort_order" title="Link to this definition">¶</a></dt>
+<dd><p>Sort key function to get files in reasonable order.</p>
+<p>Tries to get headers before files that included them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3.12/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>priority</strong> (<em>int</em>)</p></li>
+<li><p><strong>path</strong> (<em>str</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-check_python_h_first">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-check_python_h_first" title="Link to this heading">¶</a></h2>
+<p>Skeleton file to create a package.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">check-python-h-first</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributions &amp; Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">check_python_h_first package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">check_python_h_first</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">check_python_h_first</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, DWesl.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/api/check_python_h_first.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

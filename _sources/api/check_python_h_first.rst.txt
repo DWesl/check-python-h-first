@@ -1,0 +1,37 @@
+check\_python\_h\_first package
+===============================
+
+Submodules
+----------
+
+check\_python\_h\_first.get\_submodule\_paths module
+----------------------------------------------------
+
+.. automodule:: check_python_h_first.get_submodule_paths
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+check\_python\_h\_first.single\_file module
+-------------------------------------------
+
+.. automodule:: check_python_h_first.single_file
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+check\_python\_h\_first.wrapper module
+--------------------------------------
+
+.. automodule:: check_python_h_first.wrapper
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: check_python_h_first
+   :members:
+   :show-inheritance:
+   :undoc-members:
