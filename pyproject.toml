@@ -118,3 +118,7 @@ pre_commit"""
 # Read more about the various options under:
 # https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
 # https://setuptools.pypa.io/en/latest/references/keywords.html
+
+[tool.isort]
+profile = "black"
+known_first_party = ["check_python_h_first"]
