@@ -1,0 +1,9 @@
+- id: check-python-h-first
+  name: check-python-h-first
+  entry: check_python_h_first
+  language: python
+  types: ["file", "text"]
+  types_or: ["c", "c++"]
+  description: >-
+    Check whether a file includes Python.h first.  Accepts
+    numpy/ndarraytype.h, pybind/pybind.h, and friends as well
